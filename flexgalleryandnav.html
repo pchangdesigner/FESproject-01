@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Gallery and Navigation</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            padding: 20px 40px;
+            background-color: #4337de;
+            color: white;
+        }
+        .navbar__logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar__links {
+            display: flex;
+            gap: 25px;
+        }
+        .navbar__links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .navbar__links a:hover {
+            text-decoration: underline;
+            color: rgb(0, 0, 0);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 40px;
+            background-color: #f7f7f7;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1));
+            width: 250px;
+            text-align: center;
+            padding: 20px;
+        }
+        .card:hover {
+            background-color: aqua;
+            transform: scale(1.05) 
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .card__button {
+            background-color: #4337de;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .card__button:hover{
+            background-color: #060170;
+        }
+        .card__button a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+   <nav class="navbar">
+        <h1 class="navbar__logo">FES</h1>
+        <div class="navbar__links">
+            <a href="#">Home</a>
+            <a href="#">Classes</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+   </nav>
+   <section class="gallery">
+        <div class="card">
+            <img src="data:image/png;base64,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" alt="Card 1">
+            <h2>Project One</h2>
+            <p>Clean and minimal layout</p>
+            <button class="card__button"><a href="https://visualcomposer.com/blog/minimalist-graphic-design/" target="_blank">Learn More</a></button>
+        </div>
+        <div class="card">
+            <img src="data:image/png;base64,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" alt="Card 2">
+            <h2>Project Two</h2>
+            <p>Flexible and responsive design</p>
+            <button class="card__button"><a href="https://kinsta.com/blog/responsive-web-design/" target="_blank">Learn More</a></button>
+        </div>
+        <div class="card">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEX///8AAADc3NxhYWF8fHytra25ubmRkZGenp6srKxlZWW9vb1GRkaUlJSGhobX19fh4eHIyMgkJCQ3NzdpaWk8PDxzc3PQ0NBRUVF6enrt7e2zs7MfHx/n5+daWloaGhqJiYkODg7DGdO7AAADdElEQVR4nO2d627iMBBGud+voUALtKXv/5K7aGWkicfEM8quFnPOf3/MQQFHztjpdAAAoEU2PTPpMHtWq2EbJeV46TpY6iWdPVndkR62dIVtI0FXTLf7odU0dYZNtbAPZ9ixlvPtzOmu45pO3qzuKQ5be7MuMmfjLmocFzVyh83jsLE7TP4We+6cQVzU0B02jMMG7jD514VhGgxN/AvDatbPYbbIMdxlhu1yDBeZYVWD4Sz+DJV5jmHifiDiPqc/MlT+Z1VmDYb9zJz7jPDIUJlJVO4zwiPDxB1PRB/DzBwMMRRgiKEAQwwDGGIowBBDAYYYBjDEUIAhhgIMMQxgiKEAQwwFGGIYwBBDAYYYCjAs37D8XozFfJTDfJVj+JYZ9pZjuMoMu3f6vGxPlBkMTWBooi3DVVyUr4/9xjkOWzWPSlBr/nfnKNOU/+tSdiT4v65a0NUZ8x3X1Om8O8PetTBvj/21HuRr+q+U7nq3oirYOVXNIxWUbRLr8cBM8k5quzJnraI9IIGRvbBlfbcFAAAAAAAAAJTD6TwdGpkqByr84XNoDZsOP1Nha3thI2X9aNLi4pFzWUtZXL7hW9aa1GO869SL9gQTiovmcSr19XNnjHJKyu9L1B2mXKhbd5jMKX9VnyczaTA0gaGJhOF+kschx/ArM+wrx/CQGbZvMCy/26T8jiEMAxhiKMAQQwGGGAYwxFCAIYYCDDEMYIihAEMMBRhiGMAQQwGGGAowxDCAIYYCDDEUYFi+Yfm9GOX305h5up4oMxiawNAEJ3/k8ix93u4Xa6q9+ofmcSrqKz/3zeNUold+trrfwvfj+bv7LV5gzwwAAAAAAAAAFEJR55eOlfNLfYtH/+8ZtId6zrJ5jEqlFfXVPE5FfXjpE4wf7TljWj4LehOHjZpHJWirqGdZ1efJTBoMTWBo4mXfUVJ+t0n5HUMYBjDEUIAhhgIMMQxgiKEAQwwFGGIYwBBDAYYYCjDEMIAhhgIMMRRgiGEAQwwFGGIowLB8w/J7MapZP4fZvWvlkeEuM2yXY7jIDLt3a75sT5QZDE1gaEIabtw5yozgb1xWZoSrO6zWUv3jzVHa/k/uopTO/6M366elIPWwDu8xItFhHTe8x4hEX/3x4olJzOm+6zRx1+LaKFEp11Zn0zOjl3TDntVqWPIUEQAA8PALztV+7IFE7ZkAAAAASUVORK5CYII=" alt="Card 3">
+            <h2>Project Three</h2>
+            <p>Built using Flexbox principles</p>
+            <button class="card__button"><a href="https://help.outofthesandbox.com/hc/en-us/articles/360021570294-Flex-Full-list-of-icons" target="_blank">Learn More</a></button>
+        </div>
+   </section>
+</body>
+</html>
